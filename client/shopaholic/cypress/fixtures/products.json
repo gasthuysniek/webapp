@@ -1,0 +1,5 @@
+[
+    {"productId":1,"productClass":"Laptop","productName":"Strix rog","unitPrice":600.0,"availability":0,"description":"Good laptop","inStock":false},
+    {"productId":2,"productClass":"Laptop","productName":"HP Pavilion","unitPrice":300.0,"availability":0,"description":"Laptop good for working at home","inStock":false},
+    {"productId":3,"productClass":"Phone","productName":"IPhoneX","unitPrice":500.0,"availability":2,"description":"Newest IPhone on the market","inStock":true}
+]
