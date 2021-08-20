@@ -1,0 +1,40 @@
+<div fxLayout="column" fxLayoutGap="2%">
+
+
+  <mat-card class="error" *ngIf="errorMessage" data-cy="appError">
+    got an error while loading the order list: {{ errorMessage }}
+  </mat-card>
+
+
+  <div *ngIf="orders$ | async as orders; else loadingOrError">
+    <div fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="0.5%" fxLayoutAlign="start">
+      <div class="order" *ngFor="let order of orders" fxFlex="0 0 calc(25%-0.5%)" fxFlex.xs="100%">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>Ordertotaal: {{order.orderTotaal}}</mat-card-title>
+
+          </mat-card-header>
+          <mat-card-content>
+            <mat-card-subtitle>OrderId: {{order.id}}</mat-card-subtitle>
+            <mat-card-subtitle>Created: {{order.creationDate | date}}</mat-card-subtitle>
+          </mat-card-content>
+
+
+          <button (click)="deleteOrder(order.id)">
+            <mat-icon>delete_forever</mat-icon>
+          </button>
+
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+
+
+  <ng-template #loadingOrError>
+    <span *ngIf="errorMessage; else loading"></span>
+    <ng-template #loading>
+      <mat-spinner></mat-spinner>
+    </ng-template>
+  </ng-template>
+</div>
